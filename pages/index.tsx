@@ -27,7 +27,6 @@ export default function Home({posts}: Props) {
       <body className='scroll-smooth'>
         <Header />
         <Hero />
-        {/* post */}
         <div className='mx-auto max-w-7xl'>
           <div className='grid grid-cols-1 gap-3 p-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 md:p-6 lg:grid-cols-4'>
             {posts.map((post) => (

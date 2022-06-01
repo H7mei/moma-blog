@@ -8,6 +8,7 @@ import {useForm, SubmitHandler} from 'react-hook-form';
 import {useState} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface IFormInput {
   _id: string;
@@ -35,7 +36,6 @@ function Post({post}: Props) {
       body: JSON.stringify(data),
     })
       .then(() => {
-        console.log(data);
         setSubmitted(true);
       })
       .catch((err) => {
@@ -205,12 +205,9 @@ function Post({post}: Props) {
           ))}
         </div>
         <div className='relative h-10 md:h-0'>
-          <a
-            href='/'
-            className='absolute  bottom-2 right-2 animate-pulse bg-black p-3 text-white duration-150'
-          >
-            back
-          </a>
+          <div className='absolute  bottom-2 right-2 animate-pulse bg-black p-3 text-white duration-150'>
+            <Link href='/'>back</Link>
+          </div>
         </div>
       </body>
     </>
