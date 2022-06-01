@@ -1,0 +1,60 @@
+{
+  "name": "sanity-plugin-markdown",
+  "version": "2.1.1",
+  "description": "Markdown fields in Sanity Studio. Supports Github flavored Markdown and image uploads.",
+  "scripts": {
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build"
+  },
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "studio",
+    "markdown",
+    "github flavored markdown"
+  ],
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@reach/auto-id": "^0.13.2",
+    "react-markdown": "^5.0.3",
+    "react-mde": "^11.5.0",
+    "remark-gfm": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "5.1.0",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.3.0",
+    "sanipack": "^2.0.1"
+  },
+  "peerDependencies": {
+    "@sanity/base": "^2.21.5",
+    "react": "^17.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "sanipack/babel/eslint-parser",
+    "extends": [
+      "sanity",
+      "sanity/react",
+      "prettier",
+      "prettier/react"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanity-io/sanity-plugin-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanity-io/sanity-plugin-markdown/issues"
+  },
+  "homepage": "https://sanity.io"
+}
