@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 function header() {
   return (
     <div className='z-50 bg-black text-white'>
@@ -6,10 +8,10 @@ function header() {
           <div className='ml-10 cursor-not-allowed text-xl uppercase'>moma</div>
           <ul className='ml-10 flex'>
             <li className='mr-3 h-6 hover:border-b-2'>
-              <a href='/'>blog</a>
+              <Link href='/'>blog</Link>
             </li>
             <li className='mr-3 h-6 hover:border-b-2'>
-              <a href='/about'>about</a>
+              <Link href='/about'>about</Link>
             </li>
           </ul>
         </div>

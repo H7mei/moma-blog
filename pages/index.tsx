@@ -5,12 +5,19 @@ import {sanityClient, urlFor} from '../sanity';
 import {Post} from '../typings';
 import Hero from '../components/Hero';
 import {useRouter} from 'next/router';
+import Image from 'next/image';
+import {useState} from 'react';
 
 interface Props {
   posts: [Post];
 }
 
+function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
 export default function Home({posts}: Props) {
+  const [isLoading, setLoading] = useState(true);
   return (
     <>
       <Head>
@@ -26,11 +33,21 @@ export default function Home({posts}: Props) {
             {posts.map((post) => (
               <Link key={post._id} href={`/post/${post.slug.current}`}>
                 <div className='group cursor-pointer overflow-hidden border'>
-                  <img
-                    className='transition-trabsform h-44 w-full object-cover duration-200 ease-in-out group-hover:scale-105'
-                    src={urlFor(post.mainImage).url()!}
-                    alt=''
-                  />
+                  <div className='relative h-40 w-full'>
+                    <Image
+                      className={cn(
+                        'duration-100 ease-in-out group-hover:scale-105 group-hover:opacity-75',
+                        isLoading
+                          ? 'scale-110 blur-sm '
+                          : 'scale-100 blur-none',
+                      )}
+                      src={urlFor(post.mainImage).url()!}
+                      layout='fill'
+                      objectFit='cover'
+                      alt=''
+                      onLoadingComplete={() => setLoading(false)}
+                    />
+                  </div>
                   <div className='flex justify-between bg-white p-5'>
                     <div>
                       <p className='text-lg font-bold'>{post.title}</p>

@@ -7,6 +7,7 @@ import PortableText from 'react-portable-text';
 import {useForm, SubmitHandler} from 'react-hook-form';
 import {useState} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import Image from 'next/image';
 
 interface IFormInput {
   _id: string;
@@ -49,15 +50,21 @@ function Post({post}: Props) {
         <title>{post.title}</title>
         <link rel='icon' href='/connection.png' />
       </Head>
-      <body className='scroll-smooth'>
+      <body className=' scroll-smooth'>
         <Header />
-        <img
-          className='h-40 w-full object-cover'
-          src={urlFor(post.mainImage).url()!}
-          alt=''
-        />
+        <div className='relative h-40 w-full'>
+          <Image
+            layout='fill'
+            width={100}
+            height={13}
+            objectFit='cover'
+            src={urlFor(post.mainImage).url()!}
+            alt=''
+            priority
+          />
+        </div>
         <article className='mx-auto max-w-3xl p-5'>
-          <h1 className='mt-10 mb-3 text-3xl'>{post.title}</h1>
+          <h1 className='mt-8 mb-3 text-3xl'>{post.title}</h1>
           <h2 className='mb-2 text-xl font-light text-gray-500'>
             {post.description}
           </h2>
@@ -179,7 +186,7 @@ function Post({post}: Props) {
 
             <input
               type='submit'
-              className='focus:shadow-outline cursor:pointer rounded bg-black py-2 px-4 font-bold text-white shadow hover:bg-gray-900 focus:outline-none'
+              className='focus:shadow-outline cursor-pointer rounded bg-black py-2 px-4 font-bold text-white shadow hover:bg-gray-900 focus:outline-none'
             />
           </form>
         )}

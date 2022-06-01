@@ -14,7 +14,7 @@ function Hero() {
         priority
       />
       <div className='absolute top-0 flex h-[100%] w-[100%] items-center justify-center'>
-        <div className='group h-12'>
+        <div className='group h-12 cursor-crosshair'>
           <h1 className='text-1xl bg-black p-2 uppercase text-white md:text-2xl'>
             personal technical blog
           </h1>
