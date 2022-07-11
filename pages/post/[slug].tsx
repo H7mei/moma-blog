@@ -99,6 +99,12 @@ function Post({post}: Props) {
                 h2: (props: any) => (
                   <h1 className='my-5 text-xl font-bold' {...props} />
                 ),
+                h3: (props: any) => (
+                  <h1 className='my-5 text-lg font-bold' {...props} />
+                ),
+                h4: (props: any) => (
+                  <h1 className='my-5 text-base font-bold' {...props} />
+                ),
                 li: ({children}: any) => (
                   <li className='ml-4 list-disc'>{children}</li>
                 ),
