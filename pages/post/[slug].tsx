@@ -110,7 +110,7 @@ function Post({post}: Props) {
                 ),
                 link: ({href, children, blank}: any) => (
                   <a
-                    className='text-blue-500 hover:underline'
+                    className='hover:underline'
                     href={href}
                     target={blank ? '_blank' : ''}
                   >
