@@ -44,6 +44,10 @@ function Post({post}: Props) {
       });
   };
 
+  const serializers = {
+    types: {},
+  };
+
   return (
     <>
       <Head>
@@ -55,8 +59,6 @@ function Post({post}: Props) {
         <div className='relative h-40 w-full'>
           <Image
             layout='fill'
-            width={100}
-            height={13}
             objectFit='cover'
             src={urlFor(post.mainImage).url()!}
             alt=''
@@ -97,16 +99,22 @@ function Post({post}: Props) {
                 li: ({children}: any) => (
                   <li className='ml-4 list-disc'>{children}</li>
                 ),
-                link: ({href, children}: any) => {
-                  <a className='text-blue-500 hover:underline' href={href}>
+                link: ({href, children, blank}: any) => (
+                  <a
+                    className='text-blue-500 hover:underline'
+                    href={href}
+                    target={blank ? '_blank' : ''}
+                  >
                     {children}
-                  </a>;
-                },
-                code: ({code, language}: any) => (
-                  <SyntaxHighlighter language={language}>
-                    {code}
-                  </SyntaxHighlighter>
+                  </a>
                 ),
+                code: ({code, language}: any) => {
+                  return (
+                    <SyntaxHighlighter language={language}>
+                      {code}
+                    </SyntaxHighlighter>
+                  );
+                },
               }}
             />
           </div>
