@@ -9,6 +9,7 @@ import {useState} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import Image from 'next/image';
 import Link from 'next/link';
+import toast, {Toaster} from 'react-hot-toast';
 
 interface IFormInput {
   _id: string;
@@ -31,21 +32,22 @@ function Post({post}: Props) {
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    const notification = toast.loading('Please wait...');
+
     fetch('/api/createComment', {
       method: 'POST',
       body: JSON.stringify(data),
     })
       .then(() => {
         setSubmitted(true);
+        toast.success('Comment submitted!', {
+          id: notification,
+        });
       })
       .catch((err) => {
         console.log(err);
         setSubmitted(false);
       });
-  };
-
-  const serializers = {
-    types: {},
   };
 
   return (
@@ -55,6 +57,7 @@ function Post({post}: Props) {
         <link rel='icon' href='/connection.png' />
       </Head>
       <body className=' scroll-smooth'>
+        <Toaster />
         <Header />
         <div className='relative h-40 w-full'>
           <Image

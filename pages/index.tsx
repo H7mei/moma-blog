@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import {sanityClient, urlFor} from '../sanity';
 import {Post} from '../typings';
 import Hero from '../components/Hero';
-import {useRouter} from 'next/router';
 import Image from 'next/image';
 import {useState} from 'react';
 
