@@ -108,13 +108,13 @@ function Post({post}: Props) {
                     {children}
                   </a>
                 ),
-                code: ({code, language}: any) => {
-                  return (
-                    <SyntaxHighlighter language={language}>
-                      {code}
-                    </SyntaxHighlighter>
-                  );
-                },
+                // code: ({code, language}: any) => {
+                //   return (
+                //     <SyntaxHighlighter language={language}>
+                //       {code}
+                //     </SyntaxHighlighter>
+                //   );
+                // },
               }}
             />
           </div>
